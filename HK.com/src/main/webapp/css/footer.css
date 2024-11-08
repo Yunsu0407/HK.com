@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.footer{
+	height: 13vh;
+	border-top: 1px solid black;
+	display: grid;
+	grid-template-columns: 70% 30%;
+}
+
+/* 공통 */
+.footer-contact, .footer-icons{
+	display: flex;
+	height: 100%;
+}
+
+/* 연락처 CSS */
+.footer-contact{
+	font-size: 0.8vw;
+	flex-direction: column;
+}
+
+.footer-contact p{
+	padding: 0;
+	margin: 0 0 0 1vw;
+}
+
+.footer-contact p:nth-child(1){
+	margin: 1vh 0 0 1vw;
+}
+
+.footer-contact p:nth-child(4){
+	margin: 0 0 1vh 1vw;
+}
+
+
+/* SNS 아이콘 CSS */
+.footer-icons{
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	gap: 2vw;
+}
+
+.footer-icons a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-icon img{
+	width: 2vw;
+	height: auto;
+}

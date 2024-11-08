@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.header{
+	height: 10vh;
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+	border-bottom: 1px solid black;
+}
+
+a:visited{
+	color: black;
+}
+
+/* 로고, 카테고리, 버튼 공통 CSS */
+.header-logo, .header-categories, .header-buttons{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: black;
+}
+
+/* 로고 CSS */
+.header-logo{
+	font-size: 3vw;
+	font-weight: bold;
+}
+
+.header-logo a{
+	text-decoration: none;
+}
+
+/* 카테고리 CSS */
+.header-categories{
+	gap: 4vw;
+}
+
+
+.header-category{
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 2vw;
+	font-weight: bold;
+}
+
+/* 버튼 CSS */
+.header-buttons{
+	gap: 1vw;
+}
+
+
+.header-button{
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1.2vw;
+}
