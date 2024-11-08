@@ -18,6 +18,7 @@
 		<main class="main">
 			<h2>Main Page</h2>
 			<p>This is the main content of the website.</p>
+			내용 추가
 		</main>
 		<!-- footer 가져오기 -->
 		<%@ include file="footer.jsp"%>
