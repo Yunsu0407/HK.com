@@ -33,7 +33,18 @@
         <servlet-name>SignupServlet</servlet-name>
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
+    
+<!-- productInfo.jsp 서블릿 설정 -->
+    <servlet>
+        <servlet-name>ProductInfoServlet</servlet-name>
+        <jsp-file>/WEB-INF/jsp/productInfo.jsp</jsp-file>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ProductInfoServlet</servlet-name>
+        <url-pattern>/productInfo</url-pattern>
+    </servlet-mapping>
+    
     <!-- 메인 페이지 설정 -->
     <welcome-file-list>
         <welcome-file>main</welcome-file>

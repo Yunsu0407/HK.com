@@ -1,0 +1,120 @@
+/* 전체 상품 컨테이너 */
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* 상품 이미지 스타일 */
+.product-image {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 상품 상세 정보 스타일 */
+.product-details {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 옵션 선택 스타일 */
+.product-option {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* 구매 및 장바구니 버튼 스타일 */
+.purchase-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buy-now, .add-to-cart {
+    width: 100%; /* 버튼을 전체 가로로 확장 */
+    padding: 15px 0; /* 버튼의 상하 여백을 늘려서 높이 조정 */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buy-now {
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+.add-to-cart {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+/* 탭 컨테이너 스타일 */
+.tab-container {
+    width: 100%;
+    max-width: 1000px; /* 상품 정보와 같은 가로 크기 */
+    margin: 30px auto; /* 가운데 정렬 */
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* 탭 버튼 스타일 */
+.tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    transition: color 0.3s;
+}
+
+.tab-link:hover, .tab-link.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+/* 탭 콘텐츠 스타일 */
+.tab-content {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+}
