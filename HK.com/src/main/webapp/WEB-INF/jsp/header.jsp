@@ -14,25 +14,25 @@
 		</div>
 		
 		<div class="header-categories">
-            <a href="#" class="header-category">
+            <a id="header-anchor" href="#" class="header-category">
                 <span class="header-category-word">인기</span>
             </a>
-            <a href="#" class="header-category">
+            <a id="header-anchor" href="#" class="header-category">
                 <span class="header-category-word">상의</span>
             </a>
-            <a href="#" class="header-category">                       
+            <a id="header-anchor" href="#" class="header-category">                       
                 <span class="header-category-word">하의</span>
             </a>
-            <a href="#" class="header-category">
+            <a id="header-anchor" href="#" class="header-category">
                 <span class="header-category-word">신발</span>
             </a>
         </div>
 		
 		<div class="header-buttons">
-			<a href="#" class="header-button">검색</a>
-            <a href="#" class="header-button">회원가입</a>
-            <a href="#" class="header-button">로그인</a>
-            <a href="#" class="header-button">장바구니</a>
+			<a id="header-anchor" href="#" class="header-button">검색</a>
+            <a id="header-anchor" href="/signup" class="header-button">회원가입</a>
+            <a id="header-anchor" href="/login" class="header-button">로그인</a>
+            <a id="header-anchor" href="#" class="header-button">장바구니</a>
 		</div>
 	</header>
 </body>
