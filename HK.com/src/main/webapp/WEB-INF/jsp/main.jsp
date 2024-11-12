@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+	<head>
+	<meta charset="UTF-8">
 	<title>HK.com</title>
 	<!-- 기본 CSS를 가져온다 -->
 	<link rel="stylesheet" href="css/base.css"> 

@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 	<!-- 기본 CSS를 가져온다 -->
 	<link rel="stylesheet" href="css/base.css"> 
 	
