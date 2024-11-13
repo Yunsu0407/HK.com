@@ -1,25 +1,58 @@
 @charset "UTF-8";
 
-.main{
-  display: flex;
-  flex-direction: column;
-  align-items:center;
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.main-entrance-picture{
-	background-color: red;
-	height: 100px;
-	width: 100px;
+p {
+	margin: 0;
+	padding: 0;
 }
 
-.main-new-arrival{
-	background-color: green;
-	height: 100px;
-	width: 100px;
+.main-entrance-picture, .main-new-arrival, .main-on-sale {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.main-discount-items{
-	background-color: blue;
-	height: 100px;
-	width: 100px;
+.main-entrance-picture {
+	margin: 20px 0 30px 0;
+	background-color: gray;
+	height: 400px;
+	width: 80%;
+}
+
+.entrance-picture {
+	width: 90%;
+	height: 100%;
+	background-color: skyblue
+}
+
+.main-new-arrivals, .main-on-sales {
+	margin: 15px 0 30px 0;
+	width: 80%;
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	gap: 10px;
+	justify-content: center;
+}
+
+.new-arrival {
+	width: 90%;
+	height: 90%;
+	background-color: skyblue;
+}
+
+.main-new-arrival, .main-on-sale {
+	height: 400px;
+	width: 100%;
+	background-color: gray;
+}
+
+.on-sale {
+	width: 90%;
+	height: 90%;
+	background-color: skyblue;
 }
