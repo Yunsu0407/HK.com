@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.main-entrance-picture{
+	background-color: red;
+	height: 100px;
+	width: 100px;
+}
+
+.main-new-arrival{
+	background-color: green;
+	height: 100px;
+	width: 100px;
+}
+
+.main-discount-items{
+	background-color: blue;
+	height: 100px;
+	width: 100px;
+}

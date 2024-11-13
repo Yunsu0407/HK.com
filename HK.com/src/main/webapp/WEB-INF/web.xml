@@ -4,7 +4,7 @@
     <!-- main.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>MainServlet</servlet-name>
-        <jsp-file>/WEB-INF/jsp/main.jsp</jsp-file>
+        <jsp-file>/pages/main/main.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
@@ -15,7 +15,7 @@
     <!-- login.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <jsp-file>/WEB-INF/jsp/login.jsp</jsp-file>
+        <jsp-file>/pages/login/login.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
@@ -26,7 +26,7 @@
     <!-- signup.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
-        <jsp-file>/WEB-INF/jsp/signup.jsp</jsp-file>
+        <jsp-file>/pages/signup/signup.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
@@ -37,13 +37,30 @@
 <!-- productInfo.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>ProductInfoServlet</servlet-name>
-        <jsp-file>/WEB-INF/jsp/productInfo.jsp</jsp-file>
+        <jsp-file>/pages/productInfo/productInfo.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>ProductInfoServlet</servlet-name>
         <url-pattern>/productInfo</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.ico</url-pattern>
+		<url-pattern>*.swf</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.jspx</url-pattern>
+	</servlet-mapping>
     
     <!-- 메인 페이지 설정 -->
     <welcome-file-list>

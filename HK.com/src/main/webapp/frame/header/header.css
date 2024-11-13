@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.header{
+.header {
 	height: 10vh;
 	display: grid;
 	grid-template-columns: 25% 50% 25%;
@@ -8,24 +8,17 @@
 }
 
 /* 링크 색상 고정 CSS */
-.header-category, .header-button {
-    color: black !important; /* 모든 링크를 검정색으로 강제 고정 */
-    text-decoration: none;
+.header-anchor {
+	color: black !important; /* 모든 링크를 검정색으로 강제 고정 */
+	text-decoration: none;
 }
 
-.header-category:visited,
-.header-category:hover,
-.header-category:active,
-.header-button:visited,
-.header-button:hover,
-.header-button:active {
-    color: black !important; /* 방문, 호버, 클릭 상태에서 검정색 유지 */
+.header-anchor:visited, .header-anchor:hover, .header-anchor:active {
+	color: black !important; /* 방문, 호버, 클릭 상태에서 검정색 유지 */
 }
-
-
 
 /* 로고, 카테고리, 버튼 공통 CSS */
-.header-logo, .header-categories, .header-buttons{
+.header-logo, .header-categories, .header-buttons {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -33,22 +26,21 @@
 }
 
 /* 로고 CSS */
-.header-logo{
+.header-logo {
 	font-size: 3vw;
 	font-weight: bold;
 }
 
-.header-logo a{
+.header-logo a {
 	text-decoration: none;
 }
 
 /* 카테고리 CSS */
-.header-categories{
+.header-categories {
 	gap: 4vw;
 }
 
-
-.header-category{
+.header-category {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
@@ -57,12 +49,11 @@
 }
 
 /* 버튼 CSS */
-.header-buttons{
+.header-buttons {
 	gap: 1vw;
 }
 
-
-.header-button{
+.header-button {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
