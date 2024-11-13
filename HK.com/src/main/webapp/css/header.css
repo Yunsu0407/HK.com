@@ -7,16 +7,22 @@
 	border-bottom: 1px solid black;
 }
 
-#header_anchor {
-    color: black;
-    text-decoration: none; /* 링크 밑줄 제거 (선택사항) */
+/* 링크 색상 고정 CSS */
+.header-category, .header-button {
+    color: black !important; /* 모든 링크를 검정색으로 강제 고정 */
+    text-decoration: none;
 }
 
-#header_anchor:visited,
-#header_anchor:hover,
-#header_anchor:active {
-    color: black;
+.header-category:visited,
+.header-category:hover,
+.header-category:active,
+.header-button:visited,
+.header-button:hover,
+.header-button:active {
+    color: black !important; /* 방문, 호버, 클릭 상태에서 검정색 유지 */
 }
+
+
 
 /* 로고, 카테고리, 버튼 공통 CSS */
 .header-logo, .header-categories, .header-buttons{

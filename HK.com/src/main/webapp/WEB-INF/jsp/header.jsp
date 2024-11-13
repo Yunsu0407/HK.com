@@ -10,29 +10,29 @@
 <body>
 	<header class="header">
 		<div class="header-logo">
-			<a href="/">HK.com</a>
+			<a href="./">HK.com</a>
 		</div>
 		
 		<div class="header-categories">
-            <a id="header-anchor" href="#" class="header-category">
-                <span class="header-category-word">인기</span>
+			<a class="header-category" href="#">
+                인기
             </a>
-            <a id="header-anchor" href="#" class="header-category">
-                <span class="header-category-word">상의</span>
+			<a class="header-category" href="#">
+                상의
             </a>
-            <a id="header-anchor" href="#" class="header-category">                       
-                <span class="header-category-word">하의</span>
+			<a class="header-category" href="#">
+				하의
             </a>
-            <a id="header-anchor" href="#" class="header-category">
-                <span class="header-category-word">신발</span>
+			<a class="header-category" href="#">
+				신발
             </a>
         </div>
 		
 		<div class="header-buttons">
-			<a id="header-anchor" href="#" class="header-button">검색</a>
-            <a id="header-anchor" href="/signup" class="header-button">회원가입</a>
-            <a id="header-anchor" href="/login" class="header-button">로그인</a>
-            <a id="header-anchor" href="#" class="header-button">장바구니</a>
+			<a class="header-button" href="#">검색</a>
+			<a class="header-button" href="#">회원가입</a>
+			<a class="header-button" href="login">로그인</a>
+			<a class="header-button" href="#">장바구니</a>
 		</div>
 	</header>
 </body>
