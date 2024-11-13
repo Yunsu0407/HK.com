@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>회원 가입 페이지</title>
 <!-- 기본 CSS를 가져온다 -->
-<link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
+<link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_2">
 <!-- >> !TODO << -->
 <!-- 현재 페이지에 해당하는 CSS 가져오기 -->
-<link rel="stylesheet" type="text/css" href="pages/signup/signup.css?ver241113_1">
+<link rel="stylesheet" type="text/css" href="pages/signup/signup.css?ver241113_2">
 </head>
 <body>
 	<!-- 가장 바깥 div 이름은 container로 설정 -->
@@ -19,12 +19,13 @@
 
 		<!-- >> !TODO -->
 		<!-- 페이지에 들어갈 내용을 main에 작성 -->
-		<main>
+		<div class="main">
 			<div>
 				<h1>회원 가입</h1>
 				<div class="progress">
-					<span>1. 정보입력</span> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <span>2.
-						가입완료</span>
+					<span>1. 정보입력</span>
+					&nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; 
+					<span>2. 가입완료</span>
 				</div>
 			</div>
 			<div class="signup-container">
@@ -73,7 +74,7 @@
 					<button type="submit" class="submit-btn">회원가입</button>
 				</form>
 			</div>
-		</main>
+		</div>
 		<!-- !TODO << -->
 
 		<!-- footer 가져오기 -->

@@ -10,7 +10,7 @@
 <body>
 	<div class="header">
 		<div class="header-logo">
-			<a class="header-anchor" href="/">HK.com</a>
+			<a class="header-anchor" href="./">HK.com</a>
 		</div>
 
 		<div class="header-categories">
@@ -22,9 +22,9 @@
 
 		<div class="header-buttons">
 			<a class="header-anchor header-button" href="#">검색</a> 
-			<a class="header-anchor header-button" href="/signup">회원가입</a>
-			<a class="header-anchor header-button" href="/login">로그인</a>
-			<a class="header-anchor header-button" href="/shoppingCart">장바구니</a>
+			<a class="header-anchor header-button" href="./signup">회원가입</a>
+			<a class="header-anchor header-button" href="./login">로그인</a>
+			<a class="header-anchor header-button" href="./shoppingCart">장바구니</a>
 		</div>
 	</div>
 </body>
