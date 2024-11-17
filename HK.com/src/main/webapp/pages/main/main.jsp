@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>메인 페이지</title>
 <!-- 기본 CSS를 가져온다 -->
-<link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
+<link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_2">
 <!-- 현재 페이지에 해당하는 CSS 가져오기 -->
-<link rel="stylesheet" type="text/css" href="pages/main/main.css?ver241113_32">
+<link rel="stylesheet" type="text/css" href="pages/main/main.css?ver241113_33">
 </head>
 <body>
 	<!-- 가장 바깥 div 이름은 container로 설정 -->
