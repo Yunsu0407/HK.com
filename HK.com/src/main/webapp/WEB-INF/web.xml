@@ -34,7 +34,7 @@
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     
-<!-- productInfo.jsp 서블릿 설정 -->
+	<!-- productInfo.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>ProductInfoServlet</servlet-name>
         <jsp-file>/pages/productInfo/productInfo.jsp</jsp-file>
@@ -45,6 +45,7 @@
         <url-pattern>/productInfo</url-pattern>
     </servlet-mapping>
     
+<<<<<<< HEAD
 <!-- cart.jsp 서블릿 설정 -->
     <servlet>
         <servlet-name>CartServlet</servlet-name>
@@ -57,6 +58,20 @@
     </servlet-mapping>
    
 
+=======
+    <!-- category.jsp 서블릿 설정 -->
+    <servlet>
+        <servlet-name>categoryServlet</servlet-name>
+        <jsp-file>/pages/category/category.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>categoryServlet</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    
+<!-- css 설정 -->
+>>>>>>> branch 'main' of https://github.com/Yunsu0407/HK.com.git
     <servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.js</url-pattern>
@@ -74,7 +89,7 @@
 		<url-pattern>*.jspx</url-pattern>
 	</servlet-mapping>
     
-    <!-- 메인 페이지 설정 -->
+    <!-- 시작 페이지 설정 -->
     <welcome-file-list>
         <welcome-file>main</welcome-file>
     </welcome-file-list>
