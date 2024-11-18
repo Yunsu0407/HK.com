@@ -18,16 +18,16 @@
 		</div>
 		<div class="footer-icons">
 			<a class="footer-icon" href="#">
-				<img src="assets/instagram.png" alt="Instagram">
+				<img src="assets/logo/instagram.png" alt="Instagram">
 			</a> 
 			<a class="footer-icon" href="#">
-				<img src="assets/facebook.png" alt="Facebook">
+				<img src="assets/logo/facebook.png" alt="Facebook">
 			</a> 
 			<a class="footer-icon" href="#">
-				<img src="assets/youtube.png" alt="YouTube">
+				<img src="assets/logo/youtube.png" alt="YouTube">
 			</a> 
 			<a class="footer-icon" href="#">
-				<img src="assets/kakaotalk.png" alt="KakaoTalk">
+				<img src="assets/logo/kakaotalk.png" alt="KakaoTalk">
 			</a>
 		</div>
 	</div>

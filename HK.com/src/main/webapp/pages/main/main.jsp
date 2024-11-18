@@ -45,7 +45,10 @@
             <div class="main-new-arrivals">
                 <!-- 신상1 -->
                 <div class="main-new-arrival">
-                    <img class="new-arrival">
+                	<form>
+                		
+                	</form>
+                	<img class="new-arrival" src="assets/layered.png" alt="상품 사진"/>
                     <p>${newArrivalName[0]}</p>
                     <p>${newArrivalPrice[0]}</p>
                     <!-- 버튼 추가 -->
