@@ -1,0 +1,105 @@
+@charset "UTF-8"; /* 문자 인코딩 설정 */
+
+/* 메인 컨테이너 */
+.cart-container {
+    display: flex; /* Flexbox 레이아웃 설정 */
+    justify-content: space-between; /* 자식 요소를 좌우로 정렬 */
+    align-items: flex-start; /* 자식 요소를 위쪽으로 정렬 */
+    gap: 60px; /* 자식 요소 간의 간격을 넓힘 */
+    padding: 40px; /* 내부 여백 */
+    max-width: 1400px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 가로 가운데 정렬 */
+    background-color: #f9f9f9; /* 배경색 흰색 */
+    height: calc(100vh - 120px); /* 화면 높이에서 헤더/푸터 제외 */
+}
+
+/* 상품 정보 박스 */
+.cart-items {
+    flex: 4.5; /* Flexbox 비율 설정: 크기를 1.5배로 확대 */
+    background-color: #fff; /* 배경색 흰색 */
+    padding: 30px; /* 내부 여백 증가 */
+    border-radius: 12px; /* 모서리를 더 둥글게 */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* 박스 그림자 */
+    overflow-y: auto; /* 세로 스크롤 */
+    max-height: 100%; /* 높이 제한 */
+}
+
+.cart-item {
+    display: flex; /* Flexbox로 상품 이미지와 상세 정보 정렬 */
+    gap: 100px; /* 이미지와 텍스트 간격을 더 넓힘 */
+    border-bottom: 1px solid #ddd; /* 하단 구분선 */
+    padding: 30px 0; /* 위아래 여백 증가 */
+}
+
+.cart-item img {
+    width: 225px; /* 이미지 너비 확대 */
+    height: 225px; /* 이미지 높이 확대 */
+    object-fit: cover; /* 이미지 비율을 유지하며 컨테이너에 맞춤 */
+    border-radius: 12px; /* 모서리를 더 둥글게 */
+}
+
+.item-details h3 {
+    font-size: 30px; /* 제목 글자 크기 확대 */
+    font-weight: bold; /* 굵게 설정 */
+    margin: 0; /* 외부 여백 제거 */
+}
+
+.item-details p {
+    font-size: 24px; /* 일반 텍스트 글자 크기 확대 */
+    color: #555; /* 글자색 회색 */
+    margin: 10px 0; /* 위아래 여백 증가 */
+}
+
+/* 배송 정보 박스 */
+.order-summary {
+    flex: 1.5; /* Flexbox 비율 설정: 크기를 1.5배로 확대 */
+    background-color: #000; /* 배경색 검정 */
+    color: #fff; /* 글자색 흰색 */
+    padding: 45px; /* 내부 여백 증가 */
+    border-radius: 12px; /* 모서리를 더 둥글게 */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* 박스 그림자 */
+    max-height: 100%; /* 높이 제한 */
+}
+
+.order-summary h3 {
+    font-size: 18px; /* 제목 글자 크기 확대 */
+    font-weight: bold; /* 굵게 설정 */
+    margin-bottom: 30px; /* 아래쪽 여백 증가 */
+}
+
+.order-summary p {
+    font-size: 18px; /* 일반 텍스트 글자 크기 확대 */
+    margin: 18px 0; /* 위아래 여백 증가 */
+}
+
+.order-summary .btn {
+    display: block; /* 버튼을 블록 요소로 설정 */
+    width: 100%; /* 버튼의 너비를 100%로 설정 */
+    padding: 20px; /* 버튼 내부 여백 증가 */
+    margin-top: 25px; /* 버튼 상단 여백 증가 */
+    font-size: 18px; /* 텍스트 크기 확대 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    border-radius: 20px; /* 모서리를 더 둥글게 */
+    cursor: pointer; /* 클릭 가능한 포인터 표시 */
+}
+
+.btn-order {
+    background-color: #fff; /* 버튼 배경색 흰색 */
+    color: #000; /* 텍스트 색상 검정 */
+    font-weight: bold; /* 굵게 설정 */
+}
+
+.btn-order:hover {
+    background-color: #eaeaea; /* 호버 배경색 */
+}
+
+.btn-gift {
+    background-color: transparent; /* 투명 배경 */
+    color: #fff; /* 텍스트 색상 흰색 */
+    border: 1px solid #fff; /* 흰색 테두리 */
+    font-weight: bold; /* 굵게 설정 */
+}
+
+.btn-gift:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* 호버 배경 투명도 */
+}

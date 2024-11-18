@@ -45,6 +45,18 @@
         <url-pattern>/productInfo</url-pattern>
     </servlet-mapping>
     
+<!-- cart.jsp 서블릿 설정 -->
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <jsp-file>/pages/cart/cart.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+   
+
     <servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.js</url-pattern>

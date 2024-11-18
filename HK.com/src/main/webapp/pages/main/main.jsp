@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +11,10 @@
 <link rel="stylesheet" type="text/css" href="pages/main/main.css?ver241113_32">
 </head>
 <body>
-	<!-- 가장 바깥 div 이름은 container로 설정 -->
-	<div class="container">
-		<!-- header 가져오기 -->
-		<%@ include file="/frame/header/header.jsp"%>
+    <!-- 가장 바깥 div 이름은 container로 설정 -->
+    <div class="container">
+        <!-- header 가져오기 -->
+        <%@ include file="/frame/header/header.jsp"%>
 
 <% 
     String[] newArrivalName = {"신상1", "신상2", "신상3"}; 
@@ -22,7 +22,7 @@
     String[] onSaleName = {"할인 상품1", "할인 상품2", "할인 상품3"}; 
     String[] originPrice = {"정상 가격1", "정상 가격2", "정상 가격3"}; 
     String[] discountRate = {"할인율1 %", "할인율2 %", "할인율3 %"}; 
-    String[] discountPrice = {"할인 가격1", "할인가격2", "할인 	가격3"}; 
+    String[] discountPrice = {"할인 가격1", "할인가격2", "할인 가격3"}; 
 
     // 배열들을 request scope에 추가
     pageContext.setAttribute("newArrivalName", newArrivalName);
@@ -33,20 +33,27 @@
     pageContext.setAttribute("discountPrice", discountPrice);
 %>
 
-		<!-- 페이지에 들어갈 내용을 main에 작성 -->
-		<div class="main">
-			<div class="main-entrance-picture">
-				<img class="entrance-picture">
-			</div>
-			
-			<div>
-				<h1>New Arrival</h1>
-			</div>
-			<div class="main-new-arrivals">
+        <!-- 페이지에 들어갈 내용을 main에 작성 -->
+        <div class="main">
+            <div class="main-entrance-picture">
+                <img class="entrance-picture">
+            </div>
+            
+            <div>
+                <h1>New Arrival</h1>
+            </div>
+            <div class="main-new-arrivals">
+                <!-- 신상1 -->
                 <div class="main-new-arrival">
                     <img class="new-arrival">
                     <p>${newArrivalName[0]}</p>
                     <p>${newArrivalPrice[0]}</p>
+                    <!-- 버튼 추가 -->
+                    <form action="./productInfo" method="get">
+                        <input type="hidden" name="productName" value="${newArrivalName[0]}">
+                        <input type="hidden" name="productPrice" value="${newArrivalPrice[0]}">
+                        <button type="submit" class="view-product-btn">상품 상세보기</button>
+                    </form>
                 </div>
                 <div class="main-new-arrival">
                     <img class="new-arrival">
@@ -59,7 +66,7 @@
                     <p>${newArrivalPrice[2]}</p>
                 </div>
             </div>
-			
+            
             <div>
                 <h1>On Sale</h1>
             </div>
@@ -85,8 +92,8 @@
             </div>
         </div>
 
-		<!-- footer 가져오기 -->
-		<%@ include file="/frame/footer/footer.jsp"%>
-	</div>
+        <!-- footer 가져오기 -->
+        <%@ include file="/frame/footer/footer.jsp"%>
+    </div>
 </body>
 </html>

@@ -24,7 +24,7 @@
 			<a class="header-anchor header-button" href="#">검색</a> 
 			<a class="header-anchor header-button" href="./signup">회원가입</a>
 			<a class="header-anchor header-button" href="./login">로그인</a>
-			<a class="header-anchor header-button" href="./shoppingCart">장바구니</a>
+			<a class="header-anchor header-button" href="./cart">장바구니</a>
 		</div>
 	</div>
 </body>
