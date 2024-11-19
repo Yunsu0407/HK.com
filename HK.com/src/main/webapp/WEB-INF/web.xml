@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-	<!-- main.jsp 서블릿 설정 -->
-	<servlet>
-		<servlet-name>MainServlet</servlet-name>
-		<jsp-file>/pages/main/main.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>MainServlet</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-
 	<!-- login.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
@@ -34,17 +23,6 @@
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 
-	<!-- productInfo.jsp 서블릿 설정 -->
-	<servlet>
-		<servlet-name>ProductInfoServlet</servlet-name>
-		<jsp-file>/pages/productInfo/productInfo.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ProductInfoServlet</servlet-name>
-		<url-pattern>/productInfo</url-pattern>
-	</servlet-mapping>
-
 	<!-- cart.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>CartServlet</servlet-name>
@@ -54,18 +32,6 @@
 	<servlet-mapping>
 		<servlet-name>CartServlet</servlet-name>
 		<url-pattern>/cart</url-pattern>
-	</servlet-mapping>
-
-
-	<!-- category.jsp 서블릿 설정 -->
-	<servlet>
-		<servlet-name>categoryServlet</servlet-name>
-		<jsp-file>/pages/category/category.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>categoryServlet</servlet-name>
-		<url-pattern>/category</url-pattern>
 	</servlet-mapping>
 
 	<!-- css 설정 -->
@@ -88,6 +54,6 @@
 
 	<!-- 시작 페이지 설정 -->
 	<welcome-file-list>
-		<welcome-file>main</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

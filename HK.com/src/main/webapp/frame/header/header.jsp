@@ -14,16 +14,15 @@
 		</div>
 
 		<div class="header-categories">
-			<a class="header-anchor header-category" href="./category?category=상의"> 상의 </a> 
-			<a class="header-anchor header-category" href="./category?category=하의"> 하의 </a> 
-			<a class="header-anchor header-category" href="./category?category=신발"> 신발 </a>
+			<a class="header-anchor header-category" href="category?category=top"> 상의 </a> 
+			<a class="header-anchor header-category" href="category?category=bottom"> 하의 </a> 
+			<a class="header-anchor header-category" href="category?category=shoes"> 신발 </a>
 		</div>
 
 		<div class="header-buttons">
-			<a class="header-anchor header-button" href="#">검색</a> 
-			<a class="header-anchor header-button" href="./signup">회원가입</a>
-			<a class="header-anchor header-button" href="./login">로그인</a>
-			<a class="header-anchor header-button" href="./cart">장바구니</a>
+			<a class="header-anchor header-button" href="signup">회원가입</a>
+			<a class="header-anchor header-button" href="login">로그인</a>
+			<a class="header-anchor header-button" href="cart">장바구니</a>
 		</div>
 	</div>
 </body>
