@@ -13,7 +13,7 @@
 	href="pages/category/category.css?ver241117_18">
 <script>
 function goDetail(productId) {
-    window.location.href = `/productinfo?productId=${productId}`;
+    window.location.href = `productinfo?productId=${productId}`;
 }
 </script>
 </head>
