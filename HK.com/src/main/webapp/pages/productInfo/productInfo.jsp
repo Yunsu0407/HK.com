@@ -17,7 +17,7 @@
             <div class="product-container">
                 <!-- 상품 이미지 -->
                 <div class="product-image">
-                    <img src="assets/layered.png" alt="상품 이미지">
+                    <img src="assets/products/top/top06.png" alt="상품 이미지">
                 </div>
 
                 <!-- 상품 상세 정보 -->
