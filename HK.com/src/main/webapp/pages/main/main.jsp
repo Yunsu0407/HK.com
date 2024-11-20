@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_2">
 <!-- 현재 페이지에 해당하는 CSS 가져오기 -->
 <link rel="stylesheet" type="text/css"
-	href="pages/main/main.css?ver241113_41">
+	href="pages/main/main.css?ver241113_44">
 <script>
 function goDetail(productId) {
     window.location.href = `productinfo?productId=${productId}`;
@@ -26,7 +26,7 @@ function goDetail(productId) {
 		<!-- 페이지에 들어갈 내용을 main에 작성 -->
 		<div class="main">
 			<div class="main-entrance-picture">
-				<img class="entrance-picture">
+				<img class="entrance-picture" src="assets/main/entrance.jpg" alt="대문 사진">
 			</div>
 
 			<div class="main-products">
