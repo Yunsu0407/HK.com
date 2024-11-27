@@ -1,153 +1,253 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%@page import="model.Product"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>HK.com - 상품 정보</title>
-    <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
-    <link rel="stylesheet" type="text/css" href="pages/productInfo/productInfo.css?ver241113_1">
+<meta charset="UTF-8">
+<title>HK.com - 상품 정보</title>
+<link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
+<link rel="stylesheet" type="text/css"
+	href="pages/productInfo/productInfo.css?ver241113_1">
 </head>
 <body>
-    <div class="container">
-        <!-- header 가져오기 -->
-        <%@ include file="/frame/header/header.jsp"%>
+	<div class="container">
+		<!-- header 가져오기 -->
+		<%@ include file="/frame/header/header.jsp"%>
+		<%
+		String jdbcUrl = "jdbc:mysql://" + System.getenv("DB_ADDR") + ":3306/webpro";
+		if (jdbcUrl == null || jdbcUrl.isEmpty()) {
+			out.println("DB_ADDR 환경 변수가 설정되지 않았습니다.");
+			return; // 흐름 중단
+		}
+		String dbUser = "yunsu0407"; // 데이터베이스 사용자명
+		String dbPassword = "gksdbstn12A!"; // 데이터베이스 비밀번호
 
-        <!-- 메인 콘텐츠 -->
-        <div class="main">
-            <div class="product-container">
-                <!-- 상품 이미지 -->
-                <div class="product-image">
-                    <img src="assets/products/top/top06.png" alt="상품 이미지">
-                </div>
+		String sProduct_id = (String) request.getAttribute("productId");
+		if (sProduct_id == null || sProduct_id.isEmpty()) {
+			out.println("상품 ID가 제공되지 않았습니다. product");
+			return; // 페이지 실행 중단
+		}
+		int product_id = Integer.parseInt(sProduct_id);
+		String category;
+		String table;
+		if (product_id >= 100 && product_id < 200) {
+			table = "Top";
+			category = "top";
+		} else if (product_id >= 200 && product_id < 300) {
+			table = "Bottom";
+			category = "bottom";
+		} else {
+			table = "Shoes";
+			category = "shoes";
+		}
 
-                <!-- 상품 상세 정보 -->
-                <div class="product-details">
-                    <h1 class="product-title">Layered Top</h1>
-                    <p class="product-price">10,900 WON</p>
+		Connection conn = null;
+		Statement stmt = null;
+		String sql = null;
+		ResultSet rs = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver"); // MySQL 드라이버 로드
+			conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
 
-                    <!-- 장바구니 및 구매 폼 -->
-                    <form id="cartForm" action="cart" method="post" onsubmit="return validateForm()">
-                        <!-- 상품명 -->
-                        <input type="hidden" name="productName" value="Layered Top">
-                        <!-- 상품 가격 -->
-                        <input type="hidden" name="productPrice" value="10900">
-                        <!-- 상품 이미지 -->
-                        <input type="hidden" name="productImage" value="assets/layered.png">
+			// 2. 쿼리 실행
+			stmt = conn.createStatement();
+			sql = "SELECT * FROM " + table + " WHERE " + category + "ID = " + product_id; // 데이터 가져오는 SQL
+			rs = stmt.executeQuery(sql);
+		} catch (Exception e) {
+			out.println("DB 연동 오류: " + e.getMessage());
+			e.printStackTrace();
+			return; // 흐름 중단
+		}
 
-                        <!-- 옵션 선택 -->
-                        <label for="product-option">사이즈:</label>
-                        <select id="product-option" name="productSize" class="product-option" required>
-                            <option disabled selected value="">- [필수] 옵션을 선택해 주세요 -</option>
-                            <option value="L">L</option>
-                            <option value="M">M</option>
-                            <option value="S">S</option>
-                        </select>
-                        <br>
+		Product product = null;
 
-                        <!-- 수량 선택 -->
-                        <div class="quantity-container">
-                            <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
-                            <input type="number" id="quantity" name="quantity" class="quantity-input" value="1" min="1" readonly>
-                            <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
-                        </div>
+		while (rs.next()) {
+			int id = rs.getInt(category + "ID");
+			String name = rs.getString(category + "Name");
+			int price = rs.getInt(category + "Price");
+			String image = rs.getString(category + "Image");
+			String description = rs.getString(category + "Description");
+			int sizeL = rs.getInt(category + "SizeL");
+			int sizeM = rs.getInt(category + "SizeM");
+			int sizeS = rs.getInt(category + "SizeS");
+			product = new Product(id, name, price, image, description, sizeL, sizeM, sizeS);
+		}
+		
+		request.setAttribute("product", product);
+		%>
+		<!-- 메인 콘텐츠 -->
+		<div class="main">
+			<div class="product-container">
+				<!-- 상품 이미지 -->
+				<div class="product-image">
+					<img src="${product.product_imgUrl}" alt="상품 이미지">
+				</div>
 
-                        <!-- 총 가격 표시 -->
-                        <p class="total-price">
-                            총 금액: <strong id="total-price">10,900</strong> WON
-                        </p>
+				<!-- 상품 상세 정보 -->
+				<div class="product-details">
+					<h1 class="product-title">${product.product_name}</h1>
+					<p class="product-price">${product.product_price}</p>
 
-                        <!-- 장바구니 및 바로구매 버튼 -->
-                        <div class="purchase-buttons">
-                            <button type="submit" class="add-to-cart">장바구니</button>
-                            <button type="submit" formaction="buy.jsp" class="buy-now">바로구매</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+					<!-- 장바구니 및 구매 폼 -->
+					<form id="cartForm" action="cart" method="post"
+						onsubmit="return validateForm()">
+						<!-- 상품명 -->
+						<input type="hidden" name="productName"
+							value="${product.product_name}">
+						<!-- 상품 가격 -->
+						<input type="hidden" name="productPrice"
+							value="${product.product_price}">
+						<!-- 상품 이미지 -->
+						<input type="hidden" name="productImage"
+							value="${product.product_imgUrl}">
 
-            <!-- 탭 메뉴와 상세 설명 -->
-            <div class="tab-container">
-                <div class="tabs">
-                    <button class="tab-link active" onclick="openTab(event, 'details')">상품상세정보</button>
-                    <button class="tab-link" onclick="openTab(event, 'purchase-info')">상품구매안내</button>
-                </div>
+						<!-- 옵션 선택 -->
+						<label for="product-option">사이즈:</label> <select
+							id="product-option" name="productSize" class="product-option"
+							required>
+							<option disabled selected value="">- [필수] 옵션을 선택해 주세요 -</option>
+							<option value="L">L</option>
+							<option value="M">M</option>
+							<option value="S">S</option>
+						</select> <br>
 
-                <div id="details" class="tab-content active">
-                    <h2>상품 상세 정보</h2>
-                    <p>긴 길이와 옆트임으로 활용도 높은 레이어드 탑 티셔츠입니다.</p>
-                    <p><strong>코튼 100% 코마사 30수 싱글 저지원단</strong>을 사용하여 편안한 착용감을 제공합니다.</p>
-                </div>
+						<!-- 수량 선택 -->
+						<div class="quantity-container">
+							<button type="button" class="quantity-btn"
+								onclick="decreaseQuantity()">-</button>
+							<input type="number" id="quantity" name="quantity"
+								class="quantity-input" value="1" min="1" readonly>
+							<button type="button" class="quantity-btn"
+								onclick="increaseQuantity()">+</button>
+						</div>
 
-                <div id="purchase-info" class="tab-content">
-                    <h2>상품 구매 안내</h2>
-                    <p>상품 구매 관련 안내 사항이 여기에 표시됩니다.</p>
-                </div>
-            </div>
+						<!-- 총 가격 표시 -->
+						<p class="total-price">
+							총 금액: <strong id="total-price">10,900</strong> WON
+						</p>
 
-            <!-- JavaScript -->
-            <script>
-                // 수량 증가 함수
-                function increaseQuantity() {
-                    var quantityElement = document.getElementById("quantity");
-                    var totalPriceElement = document.getElementById("total-price");
-                    var productPrice = 10900;
-                    var quantity = parseInt(quantityElement.value);
-                    quantity++;
-                    quantityElement.value = quantity;
-                    totalPriceElement.innerText = (productPrice * quantity).toLocaleString();
-                }
+						<!-- 장바구니 및 바로구매 버튼 -->
+						<div class="purchase-buttons">
+							<button type="submit" class="add-to-cart">장바구니</button>
+							<button type="submit" formaction="buy.jsp" class="buy-now">바로구매</button>
+						</div>
+					</form>
+				</div>
+			</div>
 
-                // 수량 감소 함수
-                function decreaseQuantity() {
-                    var quantityElement = document.getElementById("quantity");
-                    var totalPriceElement = document.getElementById("total-price");
-                    var productPrice = 10900;
-                    var quantity = parseInt(quantityElement.value);
-                    if (quantity > 1) {
-                        quantity--;
-                        quantityElement.value = quantity;
-                        totalPriceElement.innerText = (productPrice * quantity).toLocaleString();
-                    }
-                }
+			<!-- 탭 메뉴와 상세 설명 -->
+			<div class="tab-container">
+				<div class="tabs">
+					<button class="tab-link active" onclick="openTab(event, 'details')">상품상세정보</button>
+					<button class="tab-link" onclick="openTab(event, 'purchase-info')">상품구매안내</button>
+				</div>
 
-                // 폼 유효성 검증
-                function validateForm() {
-                    var productOption = document.getElementById("product-option").value;
-                    var quantity = document.getElementById("quantity").value;
+				<div id="details" class="tab-content active">
+					<h2>상품 상세 정보</h2>
+					<p>${product.product_description }</p>
+					<p>
+						<strong>코튼 100% 코마사 30수 싱글 저지원단</strong>을 사용하여 편안한 착용감을 제공합니다.
+					</p>
+				</div>
 
-                    if (!productOption || productOption === "") {
-                        alert("사이즈를 선택해주세요.");
-                        return false;
-                    }
+				<div id="purchase-info" class="tab-content">
+					<h2>상품 구매 안내</h2>
+					<h4>배송 안내</h4>
+					<p>
+						고객님께서 주문하신 상품은 일반적으로 결제 완료 후 2~3일 이내에 배송됩니다.<br />도서산간 지역은 추가
+						배송비가 발생할 수 있습니다.
+					</p>
+					<br />
+					<h4>환불 안내</h4>
+					<p>
+						상품 수령 후 7일 이내에 교환 또는 환불이 가능하며, 제품 불량 또는 오배송의 경우 배송비는 쇼핑몰이 부담합니다.<br />단순
+						변심에 의한 환불은 왕복 배송비를 고객님께서 부담하셔야 하며, 상품 및 포장 상태가 훼손되지 않은 경우에 한해
+						처리됩니다.
+					</p>
+				</div>
+			</div>
 
-                    if (quantity <= 0) {
-                        alert("수량을 1개 이상으로 설정해주세요.");
-                        return false;
-                    }
+			<!-- JavaScript -->
+			<script>
+				// 수량 증가 함수
+				function increaseQuantity() {
+					var quantityElement = document.getElementById("quantity");
+					var totalPriceElement = document
+							.getElementById("total-price");
+					var productPrice = $
+					{
+						product.product_price
+					}
+					;
+					var quantity = parseInt(quantityElement.value);
+					quantity++;
+					quantityElement.value = quantity;
+					totalPriceElement.innerText = (productPrice * quantity)
+							.toLocaleString();
+				}
 
-                    return true; // 모든 데이터가 유효하면 제출
-                }
+				// 수량 감소 함수
+				function decreaseQuantity() {
+					var quantityElement = document.getElementById("quantity");
+					var totalPriceElement = document
+							.getElementById("total-price");
+					var productPrice = $
+					{
+						product.product_price
+					}
+					;
+					var quantity = parseInt(quantityElement.value);
+					if (quantity > 1) {
+						quantity--;
+						quantityElement.value = quantity;
+						totalPriceElement.innerText = (productPrice * quantity)
+								.toLocaleString();
+					}
+				}
 
-                // 탭 메뉴 관리
-                function openTab(evt, tabName) {
-                    var i, tabContent, tabLinks;
-                    tabContent = document.getElementsByClassName("tab-content");
-                    for (i = 0; i < tabContent.length; i++) {
-                        tabContent[i].style.display = "none";
-                    }
-                    tabLinks = document.getElementsByClassName("tab-link");
-                    for (i = 0; i < tabLinks.length; i++) {
-                        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-                    }
-                    document.getElementById(tabName).style.display = "block";
-                    evt.currentTarget.className += " active";
-                }
-                document.getElementById("details").style.display = "block";
-            </script>
-        </div>
+				// 폼 유효성 검증
+				function validateForm() {
+					var productOption = document
+							.getElementById("product-option").value;
+					var quantity = document.getElementById("quantity").value;
 
-        <!-- footer 가져오기 -->
-        <%@ include file="/frame/footer/footer.jsp"%>
-    </div>
+					if (!productOption || productOption === "") {
+						alert("사이즈를 선택해주세요.");
+						return false;
+					}
+
+					if (quantity <= 0) {
+						alert("수량을 1개 이상으로 설정해주세요.");
+						return false;
+					}
+
+					return true; // 모든 데이터가 유효하면 제출
+				}
+
+				// 탭 메뉴 관리
+				function openTab(evt, tabName) {
+					var i, tabContent, tabLinks;
+					tabContent = document.getElementsByClassName("tab-content");
+					for (i = 0; i < tabContent.length; i++) {
+						tabContent[i].style.display = "none";
+					}
+					tabLinks = document.getElementsByClassName("tab-link");
+					for (i = 0; i < tabLinks.length; i++) {
+						tabLinks[i].className = tabLinks[i].className.replace(
+								" active", "");
+					}
+					document.getElementById(tabName).style.display = "block";
+					evt.currentTarget.className += " active";
+				}
+				document.getElementById("details").style.display = "block";
+			</script>
+		</div>
+
+		<!-- footer 가져오기 -->
+		<%@ include file="/frame/footer/footer.jsp"%>
+	</div>
 </body>
 </html>

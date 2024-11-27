@@ -24,13 +24,18 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	height: 400px;
 	width: 100%;
-	background-color: gray;
+	/*background-color: gray;*/
+	border: 1px solid gray;
+	border-radius: 10%;
+	text-decoration: none;
+	color: black;
 }
 
 .category-img{
-	width: 90%;
-	height: 90%;
+	width: 80%;
+	height: 80%;
 	background-color: skyblue;
 }

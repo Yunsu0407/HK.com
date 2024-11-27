@@ -14,9 +14,9 @@
 		</div>
 
 		<div class="header-categories">
-			<a class="header-anchor header-category" href="category?category=top"> 상의 </a> 
-			<a class="header-anchor header-category" href="category?category=bottom"> 하의 </a> 
-			<a class="header-anchor header-category" href="category?category=shoes"> 신발 </a>
+			<a class="header-anchor header-category" href="category?category=상의"> 상의 </a> 
+			<a class="header-anchor header-category" href="category?category=하의"> 하의 </a> 
+			<a class="header-anchor header-category" href="category?category=신발"> 신발 </a>
 		</div>
 
 		<div class="header-buttons">
