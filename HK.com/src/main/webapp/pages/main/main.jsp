@@ -36,8 +36,8 @@
 			return; // 흐름 중단
 		}
 
-		String dbUser = "yunsu0407"; // 데이터베이스 사용자명
-		String dbPassword = "gksdbstn12A!"; // 데이터베이스 비밀번호
+		String dbUser = "hkcom"; // 데이터베이스 사용자명
+		String dbPassword = "2189"; // 데이터베이스 비밀번호
 
 		Connection conn = null;
 		Statement stmt = null;
