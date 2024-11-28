@@ -14,13 +14,17 @@
         <%@ include file="/frame/header/header.jsp"%>
         
         <%
-            // 상품 데이터 처리
-            String productName = request.getParameter("productName");
-            String productImage = request.getParameter("productImage");
-            String productPriceParam = request.getParameter("productPrice");
-            String productSize = request.getParameter("productSize");
-            String quantityParam = request.getParameter("quantity");
 
+        	// 상품 데이터 처리
+        	String productID = request.getParameter("id");    
+        	String productQuantity = request.getParameter("quantity");
+            String productSize = request.getParameter("size");
+
+            // 상품 데이터 처리
+            String productName = "바지";
+            String productImage = "assets/products/top/top01.png";
+            String productPriceParam = "99,999";
+           
             // 기본 값 초기화
             int productPrice = 0;
             int quantity = 0;
@@ -32,8 +36,8 @@
                     if (productPriceParam != null && !productPriceParam.isEmpty()) {
                         productPrice = Integer.parseInt(productPriceParam);
                     }
-                    if (quantityParam != null && !quantityParam.isEmpty()) {
-                        quantity = Integer.parseInt(quantityParam);
+                    if (productQuantity != null && !productQuantity.isEmpty()) {
+                        quantity = Integer.parseInt(productQuantity);
                     }
                 } catch (NumberFormatException e) {
                     productPrice = 0;

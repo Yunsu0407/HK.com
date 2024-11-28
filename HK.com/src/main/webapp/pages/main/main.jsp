@@ -81,7 +81,7 @@
 			<div class="main-products">
 				<c:forEach var="product" items="${products}">
 					<a class="main-product"
-						href="productinfo?productId=${product.product_key}"> <img
+						href="productinfo?productId=${product.product_id}"> <img
 						class="main-product-img" src="${product.product_imgUrl}"
 						alt="상품 이미지" />
 						<p>${product.product_name}</p>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="model.Product"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -22,8 +23,8 @@
 			out.println("DB_ADDR 환경 변수가 설정되지 않았습니다.");
 			return; // 흐름 중단
 		}
-		String dbUser = "yunsu0407"; // 데이터베이스 사용자명
-		String dbPassword = "gksdbstn12A!"; // 데이터베이스 비밀번호
+		String dbUser = "hkcom"; // 데이터베이스 사용자명
+		String dbPassword = "2189"; // 데이터베이스 비밀번호
 
 		String sProduct_id = (String) request.getAttribute("productId");
 		if (sProduct_id == null || sProduct_id.isEmpty()) {
@@ -63,19 +64,19 @@
 		}
 
 		Product product = null;
-
+		int sizeL = 0, sizeM = 0, sizeS = 0, price = 0, totalPrice;
 		while (rs.next()) {
 			int id = rs.getInt(category + "ID");
 			String name = rs.getString(category + "Name");
-			int price = rs.getInt(category + "Price");
+			price = rs.getInt(category + "Price");
 			String image = rs.getString(category + "Image");
 			String description = rs.getString(category + "Description");
-			int sizeL = rs.getInt(category + "SizeL");
-			int sizeM = rs.getInt(category + "SizeM");
-			int sizeS = rs.getInt(category + "SizeS");
+			sizeL = rs.getInt(category + "SizeL");
+			sizeM = rs.getInt(category + "SizeM");
+			sizeS = rs.getInt(category + "SizeS");
 			product = new Product(id, name, price, image, description, sizeL, sizeM, sizeS);
 		}
-		
+		totalPrice = price;
 		request.setAttribute("product", product);
 		%>
 		<!-- 메인 콘텐츠 -->
@@ -89,29 +90,40 @@
 				<!-- 상품 상세 정보 -->
 				<div class="product-details">
 					<h1 class="product-title">${product.product_name}</h1>
-					<p class="product-price">${product.product_price}</p>
+					<%
+					DecimalFormat df = new DecimalFormat("#,###,###");
+					String expPrice = df.format(totalPrice);
+					%>
+					<p class="product-price">
+						금액:
+						<%=expPrice%>
+						WON
+					</p>
 
 					<!-- 장바구니 및 구매 폼 -->
 					<form id="cartForm" action="cart" method="post"
 						onsubmit="return validateForm()">
 						<!-- 상품명 -->
-						<input type="hidden" name="productName"
-							value="${product.product_name}">
-						<!-- 상품 가격 -->
-						<input type="hidden" name="productPrice"
-							value="${product.product_price}">
-						<!-- 상품 이미지 -->
-						<input type="hidden" name="productImage"
-							value="${product.product_imgUrl}">
+						<input type="hidden" name="id"
+							value="${product.product_id}">
 
 						<!-- 옵션 선택 -->
 						<label for="product-option">사이즈:</label> <select
-							id="product-option" name="productSize" class="product-option"
+							id="product-option" name="size" class="product-option"
 							required>
 							<option disabled selected value="">- [필수] 옵션을 선택해 주세요 -</option>
-							<option value="L">L</option>
-							<option value="M">M</option>
-							<option value="S">S</option>
+							<option value="L" <%=sizeL > 0 ? "" : "disabled"%>>L [
+								남은 수량:
+								<%=sizeL%> ]
+							</option>
+							<option value="M" <%=sizeM > 0 ? "" : "disabled"%>>M [
+								남은 수량:
+								<%=sizeM%> ]
+							</option>
+							<option value="S" <%=sizeS > 0 ? "" : "disabled"%>>S [
+								남은 수량:
+								<%=sizeS%> ]
+							</option>
 						</select> <br>
 
 						<!-- 수량 선택 -->
@@ -126,7 +138,7 @@
 
 						<!-- 총 가격 표시 -->
 						<p class="total-price">
-							총 금액: <strong id="total-price">10,900</strong> WON
+							총 금액: <strong id="total-price"><%=expPrice%></strong> WON
 						</p>
 
 						<!-- 장바구니 및 바로구매 버튼 -->
@@ -148,9 +160,6 @@
 				<div id="details" class="tab-content active">
 					<h2>상품 상세 정보</h2>
 					<p>${product.product_description }</p>
-					<p>
-						<strong>코튼 100% 코마사 30수 싱글 저지원단</strong>을 사용하여 편안한 착용감을 제공합니다.
-					</p>
 				</div>
 
 				<div id="purchase-info" class="tab-content">
@@ -172,21 +181,24 @@
 
 			<!-- JavaScript -->
 			<script>
+				var totalPrice =
+			<%=totalPrice%>
+				;
+				var productPrice =
+			<%=price%>
+				;
+				// 수량 증가 함수
 				// 수량 증가 함수
 				function increaseQuantity() {
 					var quantityElement = document.getElementById("quantity");
 					var totalPriceElement = document
 							.getElementById("total-price");
-					var productPrice = $
-					{
-						product.product_price
-					}
-					;
 					var quantity = parseInt(quantityElement.value);
+
 					quantity++;
 					quantityElement.value = quantity;
 					totalPriceElement.innerText = (productPrice * quantity)
-							.toLocaleString();
+							.toLocaleString(); // 금액 포맷 적용
 				}
 
 				// 수량 감소 함수
@@ -194,17 +206,13 @@
 					var quantityElement = document.getElementById("quantity");
 					var totalPriceElement = document
 							.getElementById("total-price");
-					var productPrice = $
-					{
-						product.product_price
-					}
-					;
 					var quantity = parseInt(quantityElement.value);
+
 					if (quantity > 1) {
 						quantity--;
 						quantityElement.value = quantity;
 						totalPriceElement.innerText = (productPrice * quantity)
-								.toLocaleString();
+								.toLocaleString(); // 금액 포맷 적용
 					}
 				}
 

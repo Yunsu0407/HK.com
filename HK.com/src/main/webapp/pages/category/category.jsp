@@ -86,7 +86,7 @@
 			<div class="category-products">
 				<c:forEach var="product" items="${products}">
 					<a class="category-product"
-						href="productinfo?productId=${product.product_key}"> <img
+						href="productinfo?productId=${product.product_id}"> <img
 						class="category-img" src="${product.product_imgUrl}" alt="상품 이미지">
 						<p>${product.product_name}</p>
 						<p>${product.product_price}원</p>
