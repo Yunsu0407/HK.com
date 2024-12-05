@@ -11,7 +11,7 @@
 <title>HK.com - 상품 정보</title>
 <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
 <link rel="stylesheet" type="text/css"
-	href="pages/productInfo/productInfo.css?ver241113_1">
+	href="pages/productInfo/productInfo.css?ver241113_7">
 </head>
 <body>
 	<div class="container">
@@ -104,13 +104,11 @@
 					<form id="cartForm" action="cart" method="post"
 						onsubmit="return validateForm()">
 						<!-- 상품명 -->
-						<input type="hidden" name="id"
-							value="${product.product_id}">
+						<input type="hidden" name="id" value="${product.product_id}">
 
 						<!-- 옵션 선택 -->
 						<label for="product-option">사이즈:</label> <select
-							id="product-option" name="size" class="product-option"
-							required>
+							id="product-option" name="size" class="product-option" required>
 							<option disabled selected value="">- [필수] 옵션을 선택해 주세요 -</option>
 							<option value="L" <%=sizeL > 0 ? "" : "disabled"%>>L [
 								남은 수량:
@@ -143,7 +141,7 @@
 
 						<!-- 장바구니 및 바로구매 버튼 -->
 						<div class="purchase-buttons">
-							<button type="submit" class="add-to-cart">장바구니</button>
+							<button type="button" class="add-to-cart" onclick="addToCart()">장바구니</button>
 							<button type="submit" formaction="buy.jsp" class="buy-now">바로구매</button>
 						</div>
 					</form>
@@ -252,6 +250,36 @@
 				}
 				document.getElementById("details").style.display = "block";
 			</script>
+			<script>
+				function addToCart() {
+					var productId = document.querySelector("input[name='id']").value;
+					var size = document.querySelector("select[name='size']").value;
+					var quantity = document
+							.querySelector("input[name='quantity']").value;
+
+					if (!size || quantity <= 0) {
+						alert("사이즈와 수량을 확인해주세요.");
+						return;
+					}
+
+					var randomId = generateRandomId();
+					var cookieValue = productId + "-" + size + "-" + quantity;
+
+					setCookie(randomId, cookieValue);
+
+					console.log("새 쿠키 생성: " + randomId + "=" + cookieValue);
+					alert("상품이 장바구니에 추가되었습니다!");
+				}
+
+				function generateRandomId() {
+					return 'cart_' + Math.random().toString(36).substring(2, 12);
+				}
+
+				function setCookie(name, value) {
+					document.cookie = name + "=" + value;
+				}
+			</script>
+
 		</div>
 
 		<!-- footer 가져오기 -->

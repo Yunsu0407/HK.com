@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_2">
 <!-- 현재 페이지에 해당하는 CSS 가져오기 -->
 <link rel="stylesheet" type="text/css"
-	href="pages/main/main.css?ver241113_47">
+	href="pages/main/main.css?ver241113_50">
 <script>
 	function goDetail(productId) {
 		if (!productId) {
