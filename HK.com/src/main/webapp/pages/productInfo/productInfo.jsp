@@ -144,9 +144,15 @@
 						<!-- 장바구니 및 바로구매 버튼 -->
 						<div class="purchase-buttons">
 							<button type="submit" class="add-to-cart">장바구니</button>
-							<button type="submit" formaction="buy.jsp" class="buy-now">바로구매</button>
 						</div>
 					</form>
+					<!-- 바로구매 버튼 (페이지 이동만 수행) -->
+					<div class="purchase-buttons">
+    					<form action="order" method="get">
+      					<button type="submit" class="buy-now">바로구매</button>
+    					</form>
+</div>
+
 				</div>
 			</div>
 

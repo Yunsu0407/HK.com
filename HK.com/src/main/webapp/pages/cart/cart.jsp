@@ -87,13 +87,9 @@
                         <h4>결제 예정 금액: <%= totalPayable %> 원</h4>
                     </div>
 
-                    <form action="order.jsp" method="post">
-                        <input type="hidden" name="productName" value="<%= productName != null ? productName : "" %>">
-                        <input type="hidden" name="productPrice" value="<%= productPrice %>">
-                        <input type="hidden" name="productSize" value="<%= productSize != null ? productSize : "" %>">
-                        <input type="hidden" name="quantity" value="<%= quantity %>">
-                        <button type="submit" class="order-button">주문하기</button>
-                    </form>
+                    <form action="order" method="get">
+       					<button type="submit" class="buy-now">바로구매</button>
+    				</form>
                 </div>
             <% } %>
         </div>

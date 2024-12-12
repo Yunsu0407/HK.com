@@ -23,6 +23,16 @@
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 
+	<!-- order.jsp 서블릿 설정 -->
+	<servlet>
+		<servlet-name>OrderServlet</servlet-name>
+		<jsp-file>/pages/order/order.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>OrderServlet</servlet-name>
+		<url-pattern>/order</url-pattern>
+	</servlet-mapping>
 	<!-- cart.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>CartServlet</servlet-name>
