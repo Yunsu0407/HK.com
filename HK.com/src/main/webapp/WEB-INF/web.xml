@@ -23,6 +23,7 @@
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 
+<<<<<<< HEAD
 	<!-- order.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>OrderServlet</servlet-name>
@@ -33,6 +34,19 @@
 		<servlet-name>OrderServlet</servlet-name>
 		<url-pattern>/order</url-pattern>
 	</servlet-mapping>
+=======
+	<!-- logout.jsp 서블릿 설정 -->
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<jsp-file>/pages/logout/logout.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+>>>>>>> branch 'main' of https://github.com/Yunsu0407/HK.com.git
 	<!-- cart.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>CartServlet</servlet-name>
@@ -42,6 +56,17 @@
 	<servlet-mapping>
 		<servlet-name>CartServlet</servlet-name>
 		<url-pattern>/cart</url-pattern>
+	</servlet-mapping>
+
+	<!-- test.jsp 서블릿 설정 -->
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<jsp-file>/pages/test/test.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 
 	<!-- css 설정 -->

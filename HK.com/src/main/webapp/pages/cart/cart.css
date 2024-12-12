@@ -9,8 +9,8 @@
     padding: 40px; /* 내부 여백 */
     max-width: 1400px; /* 최대 너비 설정 */
     margin: 0 auto; /* 가로 가운데 정렬 */
-    background-color: #f9f9f9; /* 배경색 흰색 */
-    height: calc(100vh - 120px); /* 화면 높이에서 헤더/푸터 제외 */
+    background-color: white; /* 배경색 흰색 */
+    height: auto;
 }
 
 /* 상품 정보 박스 */
@@ -20,8 +20,7 @@
     padding: 30px; /* 내부 여백 증가 */
     border-radius: 12px; /* 모서리를 더 둥글게 */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* 박스 그림자 */
-    overflow-y: auto; /* 세로 스크롤 */
-    max-height: 100%; /* 높이 제한 */
+    height: 100%;
 }
 
 .cart-item {

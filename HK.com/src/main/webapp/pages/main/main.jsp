@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_2">
 <!-- 현재 페이지에 해당하는 CSS 가져오기 -->
 <link rel="stylesheet" type="text/css"
-	href="pages/main/main.css?ver241113_47">
+	href="pages/main/main.css?ver241113_50">
 <script>
 	function goDetail(productId) {
 		if (!productId) {
@@ -36,8 +36,8 @@
 			return; // 흐름 중단
 		}
 
-		String dbUser = "yunsu0407"; // 데이터베이스 사용자명
-		String dbPassword = "gksdbstn12A!"; // 데이터베이스 비밀번호
+		String dbUser = "hkcom"; // 데이터베이스 사용자명
+		String dbPassword = "2189"; // 데이터베이스 비밀번호
 
 		Connection conn = null;
 		Statement stmt = null;
