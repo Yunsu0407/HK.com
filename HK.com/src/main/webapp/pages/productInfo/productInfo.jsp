@@ -141,20 +141,15 @@
 
 						<!-- 장바구니 및 바로구매 버튼 -->
 						<div class="purchase-buttons">
-<<<<<<< HEAD
-							<button type="submit" class="add-to-cart">장바구니</button>
-=======
 							<button type="button" class="add-to-cart" onclick="addToCart()">장바구니</button>
-							<button type="submit" formaction="buy.jsp" class="buy-now">바로구매</button>
->>>>>>> branch 'main' of https://github.com/Yunsu0407/HK.com.git
 						</div>
 					</form>
 					<!-- 바로구매 버튼 (페이지 이동만 수행) -->
 					<div class="purchase-buttons">
-    					<form action="order" method="get">
-      					<button type="submit" class="buy-now">바로구매</button>
-    					</form>
-</div>
+						<form action="order" method="get">
+							<button type="submit" class="buy-now">바로구매</button>
+						</form>
+					</div>
 
 				</div>
 			</div>
@@ -283,7 +278,8 @@
 				}
 
 				function generateRandomId() {
-					return 'cart_' + Math.random().toString(36).substring(2, 12);
+					return 'cart_'
+							+ Math.random().toString(36).substring(2, 12);
 				}
 
 				function setCookie(name, value) {

@@ -58,7 +58,7 @@ h2 {
 }
 
 .login-links {
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 14px;
 }
 
@@ -69,4 +69,15 @@ h2 {
 
 .login-links a:hover {
 	text-decoration: underline;
+}
+
+.signup-button {
+	width: 100%;
+	padding: 10px;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid black;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
 }

@@ -65,19 +65,9 @@
 			for (Map<String, String> item : cartItems) {
 				productIds.add(item.get("id"));
 			}
-
-<<<<<<< HEAD
-                    <form action="order" method="get">
-       					<button type="submit" class="buy-now">바로구매</button>
-    				</form>
-                </div>
-            <% } %>
-        </div>
-=======
 			// SQL 조건문 생성
 			String idList = String.join(",", productIds);
 			// out.println("idList: " + idList); // SQL 조건 확인
->>>>>>> branch 'main' of https://github.com/Yunsu0407/HK.com.git
 
 			// 데이터베이스 연결
 			String jdbcUrl = "jdbc:mysql://" + System.getenv("DB_ADDR") + ":3306/webpro";
@@ -148,25 +138,25 @@
 		<div class="main">
 			<div class="cart-container">
 				<%
-			if (isEmptyCart) {
-			%>
+				if (isEmptyCart) {
+				%>
 				<h1>이런... 장바구니가 비었네요.</h1>
 				<%
-			} else {
-			%>
+				} else {
+				%>
 				<%
-			DecimalFormat df = new DecimalFormat("#,###");
-			%>
+				DecimalFormat df = new DecimalFormat("#,###");
+				%>
 				<div class="cart-items">
 					<%
-				for (Map<String, Object> product : productData) {
-					String productName = (String) product.get("name");
-					String productImage = (String) product.get("image");
-					int productPrice = (int) product.get("price");
-					String productSize = (String) product.get("size");
-					int quantity = Integer.parseInt((String) product.get("quantity"));
-					int totalPrice = productPrice * quantity;
-				%>
+					for (Map<String, Object> product : productData) {
+						String productName = (String) product.get("name");
+						String productImage = (String) product.get("image");
+						int productPrice = (int) product.get("price");
+						String productSize = (String) product.get("size");
+						int quantity = Integer.parseInt((String) product.get("quantity"));
+						int totalPrice = productPrice * quantity;
+					%>
 					<div class="cart-item">
 						<div class="product-image">
 							<img src="<%=productImage%>" alt="<%=productName%>">
@@ -193,8 +183,8 @@
 						</div>
 					</div>
 					<%
-				}
-				%>
+					}
+					%>
 				</div>
 
 
@@ -212,10 +202,9 @@
 						<label for="new-postal-code">우편번호:</label> <input type="text"
 							id="new-postal-code" name="newPostalCode"
 							placeholder="우편번호를 입력하세요" required> <label
-							for="new-address"><br/>배달주소:</label> <input type="text"
+							for="new-address"><br />배달주소:</label> <input type="text"
 							id="new-address" name="newAddress" placeholder="배달주소를 입력하세요"
-							required>
-<br/>
+							required> <br />
 						<button type="submit" class="change-address-button">변경</button>
 					</form>
 
@@ -230,7 +219,7 @@
 							주문 금액:
 							<%=df.format(
 		productData.stream().mapToInt(p -> (int) p.get("price") * Integer.parseInt((String) p.get("quantity"))).sum())%>
-							원	
+							원
 						</p>
 						<p>배송비: 3,000원</p>
 						<hr>
@@ -243,14 +232,13 @@
 						</h4>
 					</div>
 
-
-					<form action="order.jsp" method="post">
+					<form action="order" method="get">
 						<button type="submit" class="order-button">주문하기</button>
 					</form>
 				</div>
 				<%
-			}
-			%>
+				}
+				%>
 			</div>
 		</div>
 

@@ -23,7 +23,6 @@
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 
-<<<<<<< HEAD
 	<!-- order.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>OrderServlet</servlet-name>
@@ -34,7 +33,7 @@
 		<servlet-name>OrderServlet</servlet-name>
 		<url-pattern>/order</url-pattern>
 	</servlet-mapping>
-=======
+
 	<!-- logout.jsp 서블릿 설정 -->
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>

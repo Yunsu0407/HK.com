@@ -11,7 +11,7 @@
 <title>로그인 페이지</title>
 <link rel="stylesheet" type="text/css" href="frame/base.css?ver241113_1">
 <link rel="stylesheet" type="text/css"
-	href="pages/login/login.css?ver241113_13">
+	href="pages/login/login.css?ver241113_17">
 </head>
 <body>
 	<div class="container">
@@ -54,16 +54,18 @@
 						hkcomSession = request.getSession();
 					}
 					hkcomSession.setAttribute("userID", userID); // Save PK to session
-					
+
 					// User found: Redirect to main.jsp
-					 response.sendRedirect("main");
-					 return;
+					response.sendRedirect("main");
+					return;
 						} else {
 					// Invalid credentials: Display message
+					// 여기 alert 추가
 					message = "아이디 또는 비밀번호가 잘못되었습니다.";
 						}
 
 					} catch (SQLException e) {
+						// 여기 alert 추가
 						message = "데이터베이스 연결에 실패했습니다. " + e.getMessage();
 					}
 				}
@@ -79,17 +81,16 @@
 					</div>
 					<button type="submit" class="login-button">로그인</button>
 				</form>
-
-				<%-- If login fails, show the error message --%>
-				<p><%=message%></p>
-
 				<div class="login-links">
-					<a href="#">아이디찾기</a> | <a href="#">비밀번호찾기</a> | <a href="signup">회원가입</a>
+					<form action="signup" method="get">
+						<button type="submit" class="signup-button">회원가입</button>
+					</form>
 				</div>
 			</div>
 		</div>
 
 		<%@ include file="/frame/footer/footer.jsp"%>
 	</div>
+
 </body>
 </html>
